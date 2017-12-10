@@ -1,4 +1,5 @@
 import numpy as np
+import numpy.random as random
 import matplotlib.pyplot as plt
 
 r = 2.0
@@ -36,8 +37,9 @@ label2 = np.zeros((len(data2), 1))
 data = np.vstack((data1, data2))
 label = np.vstack((label1, label2))
 dataset=np.hstack((label,data))
-print(dataset)
-
+random.shuffle(dataset)
+#print(dataset)
+print(len(dataset))
 with open("dataset2.txt",'w') as f:
     for data in dataset:
         newline=str(data[0])+'\t'+'1:'+str(data[1])+'\t'+'2:'+str(data[2])+'\n'
